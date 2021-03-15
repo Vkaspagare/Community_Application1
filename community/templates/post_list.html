@@ -1,0 +1,12 @@
+{% extends 'dashboard.html' %}
+{% block content %}
+<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span>ADD NEW SERVICES</a>
+        {% for post in posts %}
+            <div>
+                <p>published: {{ post.published_date }}</p>
+                <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+                <p>{ { post.text|linebreaksbr }}</p>
+                <p>Rate:-{{ post.Price }}</p>
+            </div>
+        {% endfor %}
+{% endblock %}
